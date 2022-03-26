@@ -6,26 +6,6 @@ soong_namespace {
 }
 
 cc_prebuilt_library_shared {
-	name: "libaudio_log_utils",
-	owner: "xiaomi",
-	strip: {
-		none: true,
-	},
-	target: {
-		android_arm: {
-			srcs: ["proprietary/vendor/lib/libaudio_log_utils.so"],
-		},
-		android_arm64: {
-			srcs: ["proprietary/vendor/lib64/libaudio_log_utils.so"],
-		},
-	},
-	compile_multilib: "both",
-	check_elf_files: false,
-	prefer: true,
-	soc_specific: true,
-}
-
-cc_prebuilt_library_shared {
 	name: "libsdm-disp-vndapis",
 	owner: "xiaomi",
 	strip: {
@@ -300,12 +280,6 @@ android_app_import {
 }
 
 dex_import {
-	name: "audiosphere",
-	owner: "xiaomi",
-	jars: ["proprietary/framework/audiosphere.jar"],
-}
-
-dex_import {
 	name: "com.qti.snapdragon.sdk.display",
 	owner: "xiaomi",
 	jars: ["proprietary/framework/com.qti.snapdragon.sdk.display.jar"],
@@ -518,6 +492,13 @@ dex_import {
 	owner: "xiaomi",
 	jars: ["proprietary/product/framework/vendor.qti.latency-V2.0-java.jar"],
 	product_specific: true,
+}
+
+dex_import {
+	name: "audiosphere",
+	owner: "xiaomi",
+	jars: ["proprietary/system_ext/framework/audiosphere.jar"],
+	system_ext_specific: true,
 }
 
 prebuilt_etc_xml {
